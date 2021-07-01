@@ -7,7 +7,7 @@ const User = db.define("user", {
         allowNull: false,
         unique: true,
     },
-    passwordhash: {
+    password: {
         type: DataTypes.STRING,
         allowNull: false,
     },
