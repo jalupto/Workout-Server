@@ -9,8 +9,8 @@ Create log
 =========================================
 */
 
-router.post("/create", validateToken, async(req, res) => {
-    const { description, definition, result } = req.body.log;;
+router.post('/', validateToken, async(req, res) => {
+    const { description, definition, result } = req.body.log;
     const { id } = req.user;
     const logEntry = {
         description,
@@ -32,7 +32,7 @@ Get all user logs
 =========================================
 */
 
-router.get('/mine', validateToken, async(req, res) => {
+router.get('/', validateToken, async(req, res) => {
     const { id } = req.user;
     try {
         const userLogs = await LogModel.findAll({
@@ -74,7 +74,7 @@ Update log
 =========================================
 */
 
-router.put('/update/:id', validateToken, async(req, res) => {
+router.put('/:id', validateToken, async(req, res) => {
     const { description, definition, result } = req.body.log;
     const logId = req.params.id;
     const userId = req.user.id;
@@ -114,7 +114,7 @@ Delete log
 =========================================
 */
 
-router.delete('/delete/:id', validateToken, async(req, res) => {
+router.delete('/:id', validateToken, async(req, res) => {
     const userId = req.user.id;
     const logId = req.params.id;
 
